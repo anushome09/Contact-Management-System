@@ -13,7 +13,7 @@ def add_contact(name, phone, email=None, category='Uncategorized'):
         values = (name, phone, email, category)
         
         # Execute the query
-        with connection.cursor as cursor:
+        with connection.cursor() as cursor:
             cursor.execute(query, values)
             connection.commit()
             
@@ -28,8 +28,8 @@ def get_contacts():
     
     try:
         # Execute the query
-        with connection.cursor as cursor:
-            cursor.excute(query)
+        with connection.cursor() as cursor:
+            cursor.execute(query)
             contacts = cursor.fetchall()
             
         # Convert the result into list of dictionary
@@ -50,3 +50,43 @@ def get_contacts():
         print("Error fetching contacts: ", error)
         return []
             
+# Update a contact
+def update_contact(contact_id, **kwargs):
+    if not kwargs:
+        print("No updates provided.")
+        return
+    set_clause = ", ".join([f"{key} = ?" for key in kwargs.keys()])
+    values = list(kwargs.values())
+    
+    values.append(contact_id)
+    
+    sql_query = f"""
+        UPDATE Contact
+        SET {set_clause}
+        WHERE id = ?;
+    """
+    
+    try: 
+        with connection.cursor() as cursor:
+            cursor.execute(sql_query, values)
+            connection.commit()
+        print("Contact updated successfully!")
+    except pyodbc.Error as error:
+        print("Error updating contact: ", error)
+
+# Delete a contact
+def delete_contact(contact_id):
+    sql_query = """
+        DELETE FROM Contact
+        WHERE id = ?;
+    """
+    
+    try:
+        # Execute the query
+        with connection.cursor() as cursor:
+            cursor.execute(sql_query, (contact_id))
+            connection.commit()
+        print("Contact deleted Successfully!")
+    except pyodbc.Error as error:
+        print("Error deleting contact: ", error)
+        
