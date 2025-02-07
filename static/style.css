@@ -1,0 +1,139 @@
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+    font-family:  "Poppins";
+}
+
+.container{
+    border: 2px solid #212121;
+    border-radius: 4px;
+    box-shadow: 10px 10px #212121;
+
+    width: 600px;
+    margin: 200px auto 0;
+
+    padding: 50px 35px;
+}
+
+#title {
+    display: flex;
+}
+
+#title h1 {
+    margin-left: 10px;
+    margin-bottom: 10px;
+    padding-bottom: 7px;
+}
+
+#btn {
+    display: flex;
+    margin-top: 25px;
+    justify-content: space-between;
+}
+
+.button {
+    padding: 6px 20px;
+    text-align: center;
+    border-radius: 5px;
+    text-decoration: none;
+    font-size: 16px;
+    transition: background-color 0.3s;
+    width: 45%;
+    height: 40px;
+
+   
+}
+
+#btn-primary {
+    background-color: #fbb807;
+    color: #212121;
+
+    border: 2px solid #fbb807;
+}
+
+#btn-primary:hover{
+    background-color: white;
+    border: 2px solid #212121;
+}
+
+#btn-secondary {
+    background-color: #212121;
+    color: white;
+
+    border: 2px solid #212121;
+}
+
+#btn-secondary:hover{
+    background-color: white;
+    color: #212121;
+    border: 2px solid #212121;
+}
+
+#container-add-form{
+    border: 2px solid #212121;
+    border-radius: 4px;
+    box-shadow: 10px 10px #212121;
+
+    width: 600px;
+    margin: 100px auto 0;
+
+    padding: 25px 35px;
+}
+
+h1 {
+    text-align: center;
+    color: #333;
+    margin-bottom: 20px;
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    margin-top: 15px;
+}
+
+.labels {
+    display: flex;
+    flex-direction: column;
+}
+
+label {
+    margin-bottom: 5px;
+    font-weight: semi-bold;
+}
+
+input[type="text"] {
+    padding: 8px 12px;
+    border: 1.5px solid #212121;
+    border-radius: 4px;
+    font-size: 14px;
+}
+
+button {
+    background-color: #fbb807;
+    color: #212121;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 4px;
+    font-size: 16px;
+    cursor: pointer;
+}
+
+button:hover {
+    background-color: #212121;
+    color: white;
+}
+
+#heading{
+    display: flex;
+}
+
+#heading h1 {
+    padding-left: 115px;
+}
+
+#heading a {
+    padding-left: 90px;
+}

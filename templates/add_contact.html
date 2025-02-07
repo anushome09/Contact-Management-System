@@ -1,0 +1,38 @@
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ContactEase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div id="container-add-form">
+        <div id="heading">
+            <h1>Add New <span style="color: #fbb807;">Contact</span></h1>
+            <a href="/"><img src="static\x-mark.png" alt="clickable image" height="25px"></a>
+        </div>
+        <hr>
+        <form action="/add" method="post">
+            <div class="labels">
+                <label for="name">Name</label>
+                <input type="text" id="name" name="name" required>
+            </div>
+            <div class="labels">
+                <label for="phone">Phone Number</label>
+                <input type="text" id="phone" name="phone" required>
+            </div>
+            <div class="labels">
+                <label for="email">Email Id</label>
+                <input type="text" id="email" name="email" required>
+            </div>
+            <div class="labels">
+                <label for="category">Category</label>
+                <input type="text" id="category" name="category" required>
+            </div>
+            <button type="submit"><h4>ADD</h4></button>
+        </form>
+    </div>
+</body>
+</html>

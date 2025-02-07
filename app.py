@@ -1,19 +1,25 @@
-# Testing the crud function
-from utils.crud import add_contact, get_contacts, update_contact, delete_contact
+from flask import Flask, render_template, request, redirect, url_for
 
-# Add Contacts 
-add_contact(name="John Doe", phone="1234567890", email="john@example.com", category="Friend")
-add_contact(name="Jane Doe", phone="9876543210", email="jane@example.com", category="Work")
+app = Flask(__name__)
 
-# Get Contacts
-contacts = get_contacts()
-for contact in contacts:
-    print(contact["id"], contact["name"], contact["phone"], contact["email"], contact["category"])
+@app.route('/')
+def home():
+    return render_template('home.html')
 
+@app.route('/add', methods=['GET', 'POST'])
+def add_contact():
+    if request.method == 'POST':
+        name = request.form['name']
+        phone = request.form['phone']
+        email = request.form.get('email', None)
+        category = request.form.get('category', 'Uncategorized')
+        
+        # Calling the add function
+        from utils.crud import add_contact  as db_add_contact
+        db_add_contact(name=name, phone=phone, email=email, category=category)
+        
+        return redirect(url_for('home'))    
+    return render_template('add_contact.html')
 
-# Update a contact
-update_contact(1, name="John Smith", category="Family")
-
-
-# Delete a contact
-delete_contact(2)
+if __name__ == "__main__":
+    app.run(debug=True)

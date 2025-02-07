@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>ContactEase</title>
+    <link rel="stylesheet" href="{{ url_for('static', filename='style.css') }}">
+</head>
+<body>
+    <div class="container">
+        <div id="title">
+            <img src="static\mobile.png" alt="" height="35px" style="margin-top: 6px;">
+            <h1>Welcome to <span id="ContactEase" style="color: #fbb807";>ContactEase</span></h1>
+        </div>
+        <p>Your smart and simple solution for managing contacts efficiently!</p>
+        <p style="margin-top: 2px;">Easily add, view, and organize your contacts in one place. <span style="color: #fbb807;">Stay connected effortlessly.</span></p>
+        <div id="btn">
+            <a href="/add" class="button" id="btn-primary">Add Contact</a>
+        <a href="/view" class="button" id="btn-secondary">View Contacts</a>
+        </div>
+    </div>
+    <script src="{{ url_for('static', filename='script.js') }}"></script>
+</body>
+</html>
